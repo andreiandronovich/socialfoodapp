@@ -11,5 +11,5 @@ val PurpleGrey40 = Color(0xFF625b71)
 val Pink40 = Color(0xFF7D5260)
 
 // custom color
-val PurpleLogin = Color(0xFF8C5CB3)
+val PurpleAuth = Color(0xFF8C5CB3)
 val SomeBlack = Color(0xFF1E1E1E)
