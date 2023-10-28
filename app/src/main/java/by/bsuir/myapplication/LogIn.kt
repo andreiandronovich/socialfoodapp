@@ -26,6 +26,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.input.TextFieldValue
@@ -164,6 +165,8 @@ fun LogIn(
 
     }
     Image(modifier = Modifier.fillMaxSize(),
+        contentScale = ContentScale.FillWidth,
+
         painter = painterResource(id = R.drawable.reflecting1),
         contentDescription = "Log In Page")
 }
