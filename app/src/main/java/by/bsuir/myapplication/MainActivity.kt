@@ -24,7 +24,11 @@ class MainActivity : ComponentActivity() {
                 }
                 composable("screen_2") {
                     SignUp {
-                        navController.navigate("screen_1")
+                        navController.navigate("screen_1"){
+                            popUpTo("screen_1"){
+                                inclusive = true
+                            }
+                        }
                     }
 
                 }
