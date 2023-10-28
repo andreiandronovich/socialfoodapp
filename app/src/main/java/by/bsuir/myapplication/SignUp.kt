@@ -179,7 +179,7 @@ fun SignUp(
         ) {
 
             Button(
-                onClick = { /*TODO*/ },
+                onClick = { /*TODO кнопка создания аккаунта */ },
                 modifier = Modifier
                     .padding(top = 71.dp, end = 21.dp)
                     .size(width = 180.dp, height = 56.dp),
@@ -225,7 +225,7 @@ fun SignUp(
     Image(
         modifier = Modifier.fillMaxSize(),
         painter = painterResource(id = R.drawable.whoa1),
-        contentDescription = "login Page",
+        contentDescription = "signin Page",
     )
 }
 

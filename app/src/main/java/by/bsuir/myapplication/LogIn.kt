@@ -115,9 +115,34 @@ fun LogIn(
             modifier = Modifier
                 .fillMaxWidth()
                 .padding(top = 10.dp, start = 42.dp, end = 42.dp)
+                .size(306.dp, 49.dp)
                 .clip(shape = RoundedCornerShape(50.dp)),
-
-
         )
+        Row (modifier = Modifier
+            .fillMaxWidth()
+            .padding(top = 30.dp),
+            horizontalArrangement = Arrangement.SpaceBetween
+        ){
+            Text(text = "Password",
+                modifier = Modifier.padding(start = 45.dp),
+                fontWeight = FontWeight.Bold,
+                fontSize = 15.sp,
+
+            )
+            Text(text = "Forgot?",
+                modifier = Modifier.padding(end = 49.dp),
+                fontSize = 15.sp,)
+        }
+        var password by remember { mutableStateOf(TextFieldValue("")) }
+        TextField(value = password,
+            onValueChange = { newText -> password = newText },
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(top = 10.dp, start = 42.dp, end = 42.dp)
+                .size(306.dp, 49.dp)
+                .clip(shape = RoundedCornerShape(50.dp)),)
     }
+    Image(modifier = Modifier.fillMaxSize(),
+        painter = painterResource(id = R.drawable.reflecting1),
+        contentDescription = "Log In Page")
 }
