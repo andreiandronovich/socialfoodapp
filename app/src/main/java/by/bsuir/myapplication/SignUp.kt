@@ -15,6 +15,7 @@ import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.ExperimentalMaterial3Api
+import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextField
 import androidx.compose.runtime.Composable
@@ -26,9 +27,11 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.input.TextFieldValue
+import androidx.compose.ui.text.input.VisualTransformation
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
@@ -38,7 +41,8 @@ import by.bsuir.myapplication.ui.theme.PurpleAuth
 @Composable
 fun MyViewPreview() {
     SignUp(helloClick = {},
-        loginClick = {})
+        loginClick = {},
+        createAccountClick = {})
 }
 
 
@@ -46,7 +50,8 @@ fun MyViewPreview() {
 @Composable
 fun SignUp(
     helloClick: () -> Unit,
-    loginClick: () -> Unit
+    loginClick: () -> Unit,
+    createAccountClick: () -> Unit,
 ) {
     Column(
         modifier = Modifier
@@ -65,8 +70,7 @@ fun SignUp(
             )
         Button(
             onClick =
-              helloClick
-            ,
+            helloClick,
             modifier = Modifier
                 .fillMaxWidth()
                 .padding(start = 41.dp, end = 41.dp, top = 17.dp, bottom = 26.dp)
@@ -117,12 +121,10 @@ fun SignUp(
             },
 
             placeholder = {
-
                 Text(text = "Enter your name")
-
             },
-
-            )
+            singleLine = true,
+        )
         var username by remember { mutableStateOf(TextFieldValue("")) }
         TextField(
             modifier = Modifier
@@ -139,6 +141,7 @@ fun SignUp(
                     fontSize = 15.sp
                 )
             },
+            singleLine = true,
         )
         var email by remember { mutableStateOf(TextFieldValue("")) }
         TextField(
@@ -157,6 +160,7 @@ fun SignUp(
                     fontSize = 15.sp
                 )
             },
+            singleLine = true,
         )
         var password by remember { mutableStateOf(TextFieldValue("")) }
         TextField(
@@ -171,6 +175,7 @@ fun SignUp(
             placeholder = {
                 Text(text = "Enter password")
             },
+            singleLine = true,
         )
 
         Box(
@@ -179,7 +184,7 @@ fun SignUp(
         ) {
 
             Button(
-                onClick = { /*TODO кнопка создания аккаунта */ },
+                onClick = createAccountClick,
                 modifier = Modifier
                     .padding(top = 71.dp, end = 21.dp)
                     .size(width = 180.dp, height = 56.dp),
@@ -224,6 +229,8 @@ fun SignUp(
     }
     Image(
         modifier = Modifier.fillMaxSize(),
+        contentScale = ContentScale.FillWidth,
+
         painter = painterResource(id = R.drawable.whoa1),
         contentDescription = "signin Page",
     )

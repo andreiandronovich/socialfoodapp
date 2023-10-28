@@ -26,6 +26,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.input.TextFieldValue
@@ -118,8 +119,8 @@ fun LogIn(
             modifier = Modifier
                 .fillMaxWidth()
                 .padding(top = 10.dp, start = 42.dp, end = 42.dp)
-                .size(306.dp, 49.dp)
                 .clip(shape = RoundedCornerShape(50.dp)),
+            singleLine = true,
         )
         Row (modifier = Modifier
             .fillMaxWidth()
@@ -142,8 +143,9 @@ fun LogIn(
             modifier = Modifier
                 .fillMaxWidth()
                 .padding(top = 10.dp, start = 42.dp, end = 42.dp)
-                .size(306.dp, 49.dp)
-                .clip(shape = RoundedCornerShape(50.dp)),)
+                .clip(shape = RoundedCornerShape(50.dp)),
+            singleLine = true,
+            )
         Text(text = "Don’t have an account?",
             color = Color.White,
             fontSize = 15.sp,
@@ -164,6 +166,8 @@ fun LogIn(
 
     }
     Image(modifier = Modifier.fillMaxSize(),
+        contentScale = ContentScale.FillWidth,
+
         painter = painterResource(id = R.drawable.reflecting1),
         contentDescription = "Log In Page")
 }

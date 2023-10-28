@@ -34,7 +34,8 @@ class MainActivity : ComponentActivity() {
                                     }
                                 }
                             },
-                            loginClick = { navController.navigate("screen_3") }
+                            loginClick = { navController.navigate("screen_3") },
+                            createAccountClick = {navController.navigate(("screen_main"))}
                         )
                     }
                     composable("screen_3") {
@@ -54,8 +55,9 @@ class MainActivity : ComponentActivity() {
                                 }
                             }
                         )
-
-
+                    }
+                    composable("screen_main"){
+                        News()
                     }
                 }
             }

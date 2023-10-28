@@ -12,6 +12,7 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
@@ -20,6 +21,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
@@ -36,6 +38,7 @@ fun MyPreview() {
         logInClick = {}
     )
 }
+
 @Composable
 fun Hello(
     signUpClick: () -> Unit,
@@ -66,7 +69,7 @@ fun Hello(
             color = Color.White,
             fontSize = 40.sp,
             fontWeight = FontWeight.Bold,
-            )
+        )
         Text(
             modifier = Modifier
                 .fillMaxWidth()
@@ -77,13 +80,13 @@ fun Hello(
             fontWeight = FontWeight.Bold
 
         )
-        Box(modifier = Modifier.fillMaxWidth().height(279.dp)) {
             Image(
-
-                modifier = Modifier.fillMaxSize(),
+                modifier = Modifier.fillMaxWidth(),
+                contentScale = ContentScale.FillWidth,
                 painter = painterResource(id = R.drawable.group14),
-                contentDescription = "cloud",)
-        }
+                contentDescription = "cloud",
+            )
+
         Button(
             onClick = signUpClick,
             modifier = Modifier
@@ -114,7 +117,7 @@ fun Hello(
 
                 )
             Text(
-                modifier = Modifier.clickable { logInClick () },
+                modifier = Modifier.clickable { logInClick() },
                 text = "Login",
                 fontWeight = FontWeight.Bold,
                 fontSize = 15.sp,
@@ -125,8 +128,10 @@ fun Hello(
     }
 
     Image(
+        contentScale = ContentScale.FillWidth,
         modifier = Modifier.fillMaxSize(),
         painter = painterResource(id = R.drawable.beginnings1),
         contentDescription = "new-beginning",
     )
+
 }
