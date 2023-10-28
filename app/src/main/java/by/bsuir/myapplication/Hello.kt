@@ -29,13 +29,13 @@ import by.bsuir.myapplication.ui.theme.SomeBlack
 @Preview
 @Composable
 fun MyPreview() {
-    Hello(signInClick = {},
+    Hello(signUpClick = {},
         logInClick = {}
     )
 }
 @Composable
 fun Hello(
-    signInClick: () -> Unit,
+    signUpClick: () -> Unit,
     logInClick: () -> Unit,
 ) {
     Column(
@@ -76,7 +76,7 @@ fun Hello(
         )
 
         Button(
-            onClick = signInClick,
+            onClick = signUpClick,
             modifier = Modifier
                 .fillMaxWidth()
                 .padding(start = 53.dp, end = 53.dp, top = 300.dp, bottom = 8.dp)

@@ -21,7 +21,7 @@ class MainActivity : ComponentActivity() {
                 ) {
                     composable("screen_1") {
                         Hello(
-                            signInClick = { navController.navigate("screen_2") },
+                            signUpClick = { navController.navigate("screen_2") },
                             logInClick = { navController.navigate("screen_3") }
                         )
                     }
@@ -42,6 +42,13 @@ class MainActivity : ComponentActivity() {
                             helloClick = {
                                 navController.navigate("screen_1") {
                                     popUpTo("screen_1") {
+                                        inclusive = true
+                                    }
+                                }
+                            },
+                            signUpClick = {
+                                navController.navigate("screen_2") {
+                                    popUpTo("screen_2") {
                                         inclusive = true
                                     }
                                 }

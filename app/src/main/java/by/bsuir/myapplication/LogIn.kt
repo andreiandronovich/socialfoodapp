@@ -2,6 +2,7 @@ package by.bsuir.myapplication
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -35,12 +36,14 @@ import by.bsuir.myapplication.ui.theme.PurpleAuth
 @Preview
 @Composable
 fun MyViewPre() {
-    LogIn(helloClick = {})
+    LogIn(helloClick = {},
+        signUpClick = {})
 }
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun LogIn(
-    helloClick: () -> Unit
+    helloClick: () -> Unit,
+    signUpClick: () -> Unit,
 ) {
     Column(
         modifier = Modifier
@@ -141,6 +144,24 @@ fun LogIn(
                 .padding(top = 10.dp, start = 42.dp, end = 42.dp)
                 .size(306.dp, 49.dp)
                 .clip(shape = RoundedCornerShape(50.dp)),)
+        Text(text = "Don’t have an account?",
+            color = Color.White,
+            fontSize = 15.sp,
+            fontWeight = FontWeight.Bold,
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(start = 40.dp, top = 92.dp)
+        )
+        Box(modifier = Modifier.fillMaxWidth()){
+            Text(text = "Sign up",
+                fontSize = 15.sp,
+                fontWeight = FontWeight.Bold,
+                modifier = Modifier
+                    .padding(start = 102.dp, top = 6.dp)
+                    .clickable { signUpClick() }
+            )
+        }
+
     }
     Image(modifier = Modifier.fillMaxSize(),
         painter = painterResource(id = R.drawable.reflecting1),
