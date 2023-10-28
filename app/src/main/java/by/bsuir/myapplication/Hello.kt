@@ -2,6 +2,7 @@ package by.bsuir.myapplication
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
@@ -28,11 +29,14 @@ import by.bsuir.myapplication.ui.theme.SomeBlack
 @Preview
 @Composable
 fun MyPreview() {
-    Hello(onClick = {})
+    Hello(signInClick = {},
+        logInClick = {}
+    )
 }
 @Composable
 fun Hello(
-    onClick: () -> Unit
+    signInClick: () -> Unit,
+    logInClick: () -> Unit,
 ) {
     Column(
         modifier = Modifier
@@ -59,8 +63,6 @@ fun Hello(
             color = Color.White,
             fontSize = 40.sp,
             fontWeight = FontWeight.Bold,
-
-
             )
         Text(
             modifier = Modifier
@@ -74,7 +76,7 @@ fun Hello(
         )
 
         Button(
-            onClick = onClick,
+            onClick = signInClick,
             modifier = Modifier
                 .fillMaxWidth()
                 .padding(start = 53.dp, end = 53.dp, top = 300.dp, bottom = 8.dp)
@@ -103,6 +105,7 @@ fun Hello(
 
                 )
             Text(
+                modifier = Modifier.clickable { logInClick () },
                 text = "Login",
                 fontWeight = FontWeight.Bold,
                 fontSize = 15.sp,

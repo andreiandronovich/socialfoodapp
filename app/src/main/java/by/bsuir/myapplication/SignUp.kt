@@ -2,14 +2,13 @@ package by.bsuir.myapplication
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
-import androidx.compose.foundation.border
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.shape.RoundedCornerShape
@@ -28,26 +27,27 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
-import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.input.TextFieldValue
-import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import androidx.transition.Transition.MatchOrder
 import by.bsuir.myapplication.ui.theme.PurpleAuth
 
 @Preview
 @Composable
 fun MyViewPreview() {
-    SignUp(onClick = {})
+    SignUp(helloClick = {},
+        loginClick = {})
 }
 
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun SignUp(onClick: () -> Unit) {
+fun SignUp(
+    helloClick: () -> Unit,
+    loginClick: () -> Unit
+) {
     Column(
         modifier = Modifier
             .fillMaxSize()
@@ -64,7 +64,9 @@ fun SignUp(onClick: () -> Unit) {
 
             )
         Button(
-            onClick = onClick,
+            onClick =
+              helloClick
+            ,
             modifier = Modifier
                 .fillMaxWidth()
                 .padding(start = 41.dp, end = 41.dp, top = 17.dp, bottom = 26.dp)
@@ -212,7 +214,8 @@ fun SignUp(onClick: () -> Unit) {
         ) {
             Text(
                 modifier = Modifier
-                    .padding(end = 88.dp, top = 4.dp),
+                    .padding(end = 88.dp, top = 4.dp)
+                    .clickable { loginClick() },
                 text = "Login",
                 fontWeight = FontWeight.Bold,
                 fontSize = 15.sp,

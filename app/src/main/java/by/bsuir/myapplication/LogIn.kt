@@ -8,7 +8,6 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.shape.RoundedCornerShape
@@ -36,11 +35,13 @@ import by.bsuir.myapplication.ui.theme.PurpleAuth
 @Preview
 @Composable
 fun MyViewPre() {
-    LogIn(onClick = {})
+    LogIn(helloClick = {})
 }
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun LogIn(onClick : () -> Unit) {
+fun LogIn(
+    helloClick: () -> Unit
+) {
     Column(
         modifier = Modifier
             .fillMaxSize()
@@ -57,7 +58,7 @@ fun LogIn(onClick : () -> Unit) {
 
             )
         Button(
-            onClick = onClick,
+            onClick =  helloClick,
             modifier = Modifier
                 .fillMaxWidth()
                 .padding(start = 41.dp, end = 41.dp, top = 17.dp, bottom = 26.dp)

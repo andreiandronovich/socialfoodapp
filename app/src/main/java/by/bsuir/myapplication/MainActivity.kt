@@ -18,18 +18,34 @@ class MainActivity : ComponentActivity() {
                 startDestination = "screen_1"
             ) {
                 composable("screen_1") {
-                    Hello {
-                        navController.navigate("screen_2")
-                    }
+                    Hello(
+                        signInClick = { navController.navigate("screen_2") },
+                        logInClick = { navController.navigate("screen_3") }
+                    )
                 }
                 composable("screen_2") {
-                    SignUp {
-                        navController.navigate("screen_1"){
-                            popUpTo("screen_1"){
-                                inclusive = true
+                    SignUp(
+                        helloClick = {
+                            navController.navigate("screen_1") {
+                                popUpTo("screen_1") {
+                                    inclusive = true
+                                }
+                            }
+                        },
+                        loginClick = {navController.navigate("screen_3") }
+                    )
+                }
+                composable("screen_3") {
+                    LogIn(
+                        helloClick = {
+                            navController.navigate("screen_1") {
+                                popUpTo("screen_1") {
+                                    inclusive = true
+                                }
                             }
                         }
-                    }
+                    )
+
 
                 }
             }
